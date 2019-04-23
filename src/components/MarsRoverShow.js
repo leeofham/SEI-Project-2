@@ -1,5 +1,6 @@
 import React from 'react'
-import axios from 'axios'
+
+import Store from '../lib/Store'
 
 class MarsRoverShow extends React.Component{
 
@@ -7,29 +8,30 @@ class MarsRoverShow extends React.Component{
     super(props)
 
     this.state = {
-      datum: [],
-      stateLoaded: null
+      datum: this.props.location.state || Store.getStore()
     }
+    this.stringifyDatum = this.stringifyDatum.bind(this)
   }
 
-  componentDidMount() {
-    axios.get('https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2018-06-15&page=2&api_key=0NeW5J5VXCp6NRbCOu6Yv5ANYejzU73uezmTIfTv')
-      .then(res => this.setState({ datum: res.data.photos }))
-      .then(() => this.setState({ stateLoaded: true }))
+
+  stringifyDatum(){
+    const datum = JSON.stringify(this.state.datum)
+    Store.setStore(datum)
   }
 
   render(){
-    console.log('this is the state', this.state.datum)
+    this.stringifyDatum()
     return(
       <section className="section">
         <div className="container">
           <div className="columns is-multiline">
             <div className="column is-6">
-              <img src="" alt="image" />
+              <figure className="image">
+                <img src={this.state.datum.img_src} alt="image" />
+              </figure>
             </div>
             <div className="column is-6">
-              {this.state.stateLoaded && <h2>{this.state.datum[0].rover.name}</h2> }
-
+              {<h2>{this.state.datum.rover.name}</h2>}
             </div>
           </div>
         </div>

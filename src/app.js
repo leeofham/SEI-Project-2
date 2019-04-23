@@ -14,8 +14,8 @@ class App extends React.Component {
       <Router>
         <main>
           <Switch>
-            <Route path="/MarsRover/:id" component={MarsRoverShow} />
-            <Route path="/MarsRover" component={MarsRover} />
+            <Route path="/marsrover/:id" component={MarsRoverShow} />
+            <Route path="/marsrover" component={MarsRover} />
             <Route path="/" component={Home} />
           </Switch>
         </main>
