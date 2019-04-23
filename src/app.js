@@ -8,9 +8,11 @@ import 'bulma'
 import './style.scss'
 
 import Home from './components/Home'
-import MarsRover from './components/MarsRover'
+import MarsRoverIndex from './components/MarsRoverIndex'
 import MarsRoverShow from './components/MarsRoverShow'
 import Navbar from './components/Navbar'
+import APODIndex from './components/APODIndex'
+
 
 class App extends React.Component {
   render(){
@@ -19,8 +21,9 @@ class App extends React.Component {
         <Navbar />
         <main>
           <Switch>
+            <Route path="/apodindex" component={APODIndex} />
             <Route path="/marsrover/:id" component={MarsRoverShow} />
-            <Route path="/marsrover" component={MarsRover} />
+            <Route path="/marsrover" component={MarsRoverIndex} />
             <Route path="/" component={Home} />
           </Switch>
         </main>

@@ -37,7 +37,7 @@ class Navbar extends React.Component {
         <div className="container">
           <div className="navbar-brand">
             {/* Navbar branding and burger menu */}
-            <Link to="/" className="navbar-item is-size-2">Home</Link>
+            <Link to="/" className="navbar-item is-size-4">🚀🛸 Home</Link>
 
             <a role="button" className={`navbar-burger ${this.state.active ? ' is-active' : ''}`} onClick={this.toggleActive}>
               <span aria-hidden="true"></span>
@@ -51,10 +51,12 @@ class Navbar extends React.Component {
             {/* Everything else */}
             <div className="navbar-start">
               {/* left-hand links */}
-              <Link to="/marsrover" className="navbar-item">MarsRover</Link>
+
             </div>
             <div className="navbar-end">
               {/* right-hand links */}
+              <Link to="/marsrover" className="navbar-item">MarsRover</Link>
+              <Link to="/apodindex" className="navbar-item">Astronomy picture of the day</Link>
             </div>
           </div>
         </div>
