@@ -1,8 +1,8 @@
 import React from 'react'
-// import { Link } from 'react-router-dom'
-import axios from 'axios'
 
-// import EarthCard from './EarthCard'
+import axios from 'axios'
+import DatePicker from 'react-date-picker'
+
 
 class APODIndex extends React.Component{
 
@@ -11,7 +11,7 @@ class APODIndex extends React.Component{
 
     this.state = {
       data: [],
-      date: '2018-03-07'
+      date: new Date()
     }
     this.handleChange = this.handleChange.bind(this)
     this.updateImages = this.updateImages.bind(this)
@@ -20,7 +20,7 @@ class APODIndex extends React.Component{
   componentDidMount(){
     axios.get('https://api.nasa.gov/planetary/apod', {
       params: {
-        date: this.state.date,
+        date: (this.state.date + '').substr(0, 15),
         hd: true,
         api_key: '0NeW5J5VXCp6NRbCOu6Yv5ANYejzU73uezmTIfTv'
       }
@@ -31,7 +31,7 @@ class APODIndex extends React.Component{
   updateImages(){
     axios.get('https://api.nasa.gov/planetary/apod', {
       params: {
-        date: this.state.date,
+        date: (this.state.date + '').substr(0, 15),
         hd: true,
         api_key: '0NeW5J5VXCp6NRbCOu6Yv5ANYejzU73uezmTIfTv'
       }
@@ -39,17 +39,20 @@ class APODIndex extends React.Component{
       .then(res => this.setState({data: res.data }))
   }
 
-  handleChange(e){
-    const date = e.target.value
+  handleChange(date){
     this.setState({ date }, () => this.updateImages())
   }
 
   render(){
-    console.log(this.state.data)
+    console.log((this.state.date + '').substr(0, 15))
     return(
       <section className='section'>
         <div className='container'>
-          <input type='date' onChange={this.handleChange} value={this.state.date} />
+          <DatePicker
+            format={'dd-MM-y'}
+            onChange={this.handleChange}
+            value={this.state.date}
+          />
           <div className='columns is-multiline'>
             <div className='column is-8'>
               <figure className='image'>
