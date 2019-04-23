@@ -13,7 +13,6 @@ class MarsRoverShow extends React.Component{
     this.stringifyDatum = this.stringifyDatum.bind(this)
   }
 
-
   stringifyDatum(){
     const datum = JSON.stringify(this.state.datum)
     Store.setStore(datum)
