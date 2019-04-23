@@ -6,7 +6,6 @@ class Store {
   static getStore(){
     const newDatum = localStorage.getItem('datum')
     return JSON.parse(newDatum)
-
   }
 }
 
