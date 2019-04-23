@@ -8,14 +8,14 @@ class MarsRover extends React.Component{
     super()
 
     this.state = {
-      data: {}
+      data: null
     }
   }
 
   componentDidMount(){
     axios.get('https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=0NeW5J5VXCp6NRbCOu6Yv5ANYejzU73uezmTIfTv')
       .then(res => this.setState({data: res.data }))
-      // <img src={this.state.data.photos[0].img_src} alt='test image' />
+
   }
 
 
@@ -25,7 +25,7 @@ class MarsRover extends React.Component{
       <section className='section'>
         <div className='container'>
           <h1>Hello</h1>
-
+          {this.state.data && <img src={this.state.data.photos[0].img_src} alt='test image' /> }
         </div>
       </section>
     )
