@@ -2,7 +2,7 @@ import React from 'react'
 
 const MarsRoverCard = (props) => {
   return(
-    <div className="card">
+    <div className={`card ${props.id}`}>
       <div className="card-header">
         <h3 className="card-header-title">Date: {props.earth_date}</h3>
       </div>
