@@ -27,14 +27,15 @@ class APODIndex extends React.Component{
     const randomMonth = Math.ceil(Math.random() * 12)
     const randomDay = Math.ceil(Math.random() * 28)
     const year = 2012 + randomYear
+    const date = `${year}-${randomMonth}-${randomDay}`
 
-    this.setState({date: `${year}-${randomMonth}-${randomDay}`}, () => this.updateImages())
+    this.setState({date: date }, () => this.updateImages(date))
   }
 
-  updateImages(){
+  updateImages(randomDate = null){
     axios.get('https://api.nasa.gov/planetary/apod', {
       params: {
-        date: this.state.date.toISOString().substr(0,10),
+        date: randomDate || this.state.date.toISOString().substr(0,10),
         hd: true,
         api_key: '0NeW5J5VXCp6NRbCOu6Yv5ANYejzU73uezmTIfTv'
       }
@@ -47,7 +48,6 @@ class APODIndex extends React.Component{
   }
 
   render(){
-    console.log(this.state.date)
     return(
       <section className='section'>
         <div className='container'>
