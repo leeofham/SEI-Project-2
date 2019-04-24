@@ -1,10 +1,16 @@
-.card {
-  border-radius: 5px;
-  // box-shadow: none;
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+* {
+  font-family: 'Roboto', sans-serif;
 }
 
 h2 {
   padding-top: 25 px;
+}
+
+h1.title.is-1,
+h2.subtitle.is-3.has-text-white {
+  text-align: center;
 }
 
 p {
@@ -15,6 +21,10 @@ img {
   max-height: 80vh;
   height: auto;
   width: 100%;
+}
+
+.card {
+  border-radius: 5px;
 }
 
 .level-left {
@@ -29,10 +39,6 @@ img {
   padding-top: 8px;
 }
 
-// @media only screen and (max-width: 450px) {
-//   flex-direction: row;
-// }
-//
 .carousel-button {
   margin: 25px 0;
 }
@@ -41,7 +47,8 @@ img {
   color: hsl(348, 100%, 61%);
 }
 
-nav.navbar.is-dark div.container div.navbar-menu div.navbar-end a.navbar-item:hover, nav.navbar.is-dark div.container div.navbar-brand a.navbar-item:hover {
+nav.navbar.is-dark div.container div.navbar-menu div.navbar-end a.navbar-item:hover,
+nav.navbar.is-dark div.container div.navbar-brand a.navbar-item:hover {
   color: hsl(48, 100%, 67%);
 }
 
@@ -50,10 +57,34 @@ a.button.is-dark:hover, button.button.is-dark:hover {
   color: hsl(0, 0%, 21%);
 }
 
-div.mainContainer section.section {
-  padding-top: 0;
+div.mainContainer {
+  section.section {
+    padding-top: 0;
+  }
+
+  section.section:first-child {
+    padding-bottom: 10px;
+  }
 }
 
-div.mainContainer section.section:first-child {
-  padding-bottom: 10px;
+.home-container {
+  padding-top: 15%;
+  height: 95vh;
+  background-image: url("https://images-assets.nasa.gov/image/PIA04921/PIA04921~orig.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  h2 {
+    padding-top: 25px;
+  }
+
+  .button {
+    margin-top: 50px;
+  }
+
+  div.columns.is-centered.is-multiline div.column.is-5 {
+    display: flex;
+    justify-content: center;
+  }
 }
