@@ -10,7 +10,8 @@ class MarsRoverCarousel extends React.Component{
     this.state = {
       active: false,
       date: new Date('2019-03-31'),
-      data: []
+      data: [],
+      clickedImage: ''
     }
 
     this.updateImages = this.updateImages.bind(this)
@@ -19,8 +20,11 @@ class MarsRoverCarousel extends React.Component{
   }
 
 
-  toggleActive() {
-    this.setState({ active: !this.state.active })
+  toggleActive(i) {
+    this.setState({
+      active: !this.state.active,
+      modal: i
+    })
   }
 
   componentDidMount(){
@@ -54,12 +58,12 @@ class MarsRoverCarousel extends React.Component{
         <div className='container'>
           <button className='button is-dark' onClick={this.randomDatePicker}>More Photos</button>
           <div className='columns is-multiline'>
-            {this.state.data.map(datum =>
-              <div key={datum.id} className='column is-one-quarter-desktop is-one-third-tablet'>
-                <figure className='image'>
-                  <img src={datum.img_src} alt={datum.id} onClick={this.toggleActive} />
+            {this.state.data.map((datum, i) =>
+              <div key={datum.id} className='column is-one-quarter-desktop is-6-tablet'>
+                <figure className='image '>
+                  <img src={datum.img_src} alt={datum.id} onClick={() => this.toggleActive(i)} />
                 </figure>
-                <div className={`modal ${this.state.active ? ' is-active' : ''}`}>
+                <div key={datum.id} className={`modal ${this.state.active && this.state.modal === i ? ' is-active' : ''}`}>
                   <div className="modal-background"></div>
                   <div className="modal-content">
                     <p className="image">
