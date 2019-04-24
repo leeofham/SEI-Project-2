@@ -51,23 +51,39 @@ class APODIndex extends React.Component{
     return(
       <section className='section'>
         <div className='container'>
-          <DatePicker
-            format={'dd-MM-y'}
-            onChange={this.handleChange}
-            value={this.state.date}
-          />
-          <button className='button is-dark' onClick={this.randomDatePicker}>Random Date</button>
-          <div className='columns is-multiline'>
+          <div className='columns is-multiline is-centered'>
+            <div className='column is-9'>
+              <div className='level'>
+                <div className='level-left'>
+                  <DatePicker
+                    format={'dd-MM-y'}
+                    onChange={this.handleChange}
+                    value={this.state.date}
+                  />
+                </div>
+                <div className='level-right'>
+                  <button className='button is-dark' onClick={this.randomDatePicker}>Random Date</button>
+                </div>
+              </div>
+            </div>
+            <div className='column is-8'>
+              <h2 className='title'>{this.state.data.title}</h2>
+              <div className='level'>
+                <div className='level-left'>
+                  <h3 className='subtitle is-italic'>{this.state.data.copyright}</h3>
+                </div>
+                <div className='level-right'>
+                  <h3 className='has-text-weight-bold is-size-6 has-text-right date'>{this.state.data.date}</h3>
+                </div>
+              </div>
+              <hr />
+            </div>
             <div className='column is-8'>
               <figure className='image'>
                 <img src={this.state.data.url} alt={this.state.data.title} />
               </figure>
             </div>
-            <div className='column is-4'>
-              <h2 className='title'>{this.state.data.title}</h2>
-              <h2 className='subtitle is-italic'>{this.state.data.copyright}</h2>
-              <p className='has-text-weight-bold is-size-6'>{this.state.data.date}</p>
-              <hr />
+            <div className='column is-8'>
               <p>{this.state.data.explanation}</p>
             </div>
           </div>

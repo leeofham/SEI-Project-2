@@ -54,9 +54,10 @@ class MarsRoverCarousel extends React.Component{
 
   render(){
     return(
-      <section className='section'>
+      <section className='section carousel-section'>
         <div className='container'>
-          <button className='button is-dark' onClick={this.randomDatePicker}>More Photos</button>
+          <hr />
+          <button className='button is-dark carousel-button' onClick={this.randomDatePicker}>More Photos</button>
           <div className='columns is-multiline'>
             {this.state.data.map((datum, i) =>
               <div key={datum.id} className='column is-one-quarter-desktop is-6-tablet'>

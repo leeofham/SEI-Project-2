@@ -3,8 +3,8 @@
   // box-shadow: none;
 }
 
-h2.subtitle {
-  padding-top: 10px;
+h2 {
+  padding-top: 25 px;
 }
 
 p {
@@ -13,4 +13,47 @@ p {
 
 img {
   max-height: 80vh;
+  height: auto;
+  width: 100%;
+}
+
+.level-left {
+  display: block;
+}
+
+.level-right {
+  flex-direction: column;
+}
+
+.date {
+  padding-top: 8px;
+}
+
+// @media only screen and (max-width: 450px) {
+//   flex-direction: row;
+// }
+//
+.carousel-button {
+  margin: 25px 0;
+}
+
+.navbar a:hover {
+  color: hsl(348, 100%, 61%);
+}
+
+nav.navbar.is-dark div.container div.navbar-menu div.navbar-end a.navbar-item:hover, nav.navbar.is-dark div.container div.navbar-brand a.navbar-item:hover {
+  color: hsl(48, 100%, 67%);
+}
+
+a.button.is-dark:hover, button.button.is-dark:hover {
+  background: hsl(48, 100%, 67%);
+  color: hsl(0, 0%, 21%);
+}
+
+div.mainContainer section.section {
+  padding-top: 0;
+}
+
+div.mainContainer section.section:first-child {
+  padding-bottom: 10px;
 }
