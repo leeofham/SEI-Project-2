@@ -11,27 +11,30 @@ class APODIndex extends React.Component{
 
     this.state = {
       data: [],
-      date: new Date()
+      date: new Date(2019, 2, 31)
     }
     this.handleChange = this.handleChange.bind(this)
     this.updateImages = this.updateImages.bind(this)
+    this.randomDatePicker = this.randomDatePicker.bind(this)
   }
 
   componentDidMount(){
-    axios.get('https://api.nasa.gov/planetary/apod', {
-      params: {
-        date: (this.state.date + '').substr(0, 15),
-        hd: true,
-        api_key: '0NeW5J5VXCp6NRbCOu6Yv5ANYejzU73uezmTIfTv'
-      }
-    })
-      .then(res => this.setState({data: res.data }))
+    this.updateImages()
+  }
+
+  randomDatePicker(){
+    const randomYear = Math.floor(Math.random() * 7)
+    const randomMonth = Math.ceil(Math.random() * 12)
+    const randomDay = Math.ceil(Math.random() * 28)
+    const year = 2012 + randomYear
+
+    this.setState({date: `${year}-${randomMonth}-${randomDay}`}, () => this.updateImages())
   }
 
   updateImages(){
     axios.get('https://api.nasa.gov/planetary/apod', {
       params: {
-        date: (this.state.date + '').substr(0, 15),
+        date: this.state.date.toISOString().substr(0,10),
         hd: true,
         api_key: '0NeW5J5VXCp6NRbCOu6Yv5ANYejzU73uezmTIfTv'
       }
@@ -44,7 +47,7 @@ class APODIndex extends React.Component{
   }
 
   render(){
-    console.log((this.state.date + '').substr(0, 15))
+    console.log(this.state.date)
     return(
       <section className='section'>
         <div className='container'>
@@ -53,6 +56,7 @@ class APODIndex extends React.Component{
             onChange={this.handleChange}
             value={this.state.date}
           />
+          <button className='button is-dark' onClick={this.randomDatePicker}>Random Date</button>
           <div className='columns is-multiline'>
             <div className='column is-8'>
               <figure className='image'>

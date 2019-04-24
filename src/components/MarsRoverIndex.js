@@ -12,21 +12,16 @@ class MarsRover extends React.Component{
 
     this.state = {
       data: [],
-      date: new Date()
+      date: new Date('2019-03-31')
     }
     this.handleChange = this.handleChange.bind(this)
     this.updateImages = this.updateImages.bind(this)
+    this.randomDatePicker = this.randomDatePicker.bind(this)
+
   }
 
   componentDidMount(){
-    axios.get('https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos', {
-      params: {
-        earth_date: this.state.date,
-        page: 1,
-        api_key: '0NeW5J5VXCp6NRbCOu6Yv5ANYejzU73uezmTIfTv'
-      }
-    })
-      .then(res => this.setState({data: res.data.photos }))
+    this.updateImages()
   }
 
   updateImages(){
@@ -38,6 +33,15 @@ class MarsRover extends React.Component{
       }
     })
       .then(res => this.setState({data: res.data.photos }))
+  }
+
+  randomDatePicker(){
+    const randomYear = Math.floor(Math.random() * 7)
+    const randomMonth = Math.ceil(Math.random() * 12)
+    const randomDay = Math.ceil(Math.random() * 28)
+    const year = 2012 + randomYear
+
+    this.setState({date: `${year}-${randomMonth}-${randomDay}`}, () => this.updateImages())
   }
 
   handleChange(date) {
@@ -53,7 +57,10 @@ class MarsRover extends React.Component{
             onChange={this.handleChange}
             value={this.state.date}
             format={'dd-MM-y'}
+            minDate={new Date(2012, 7, 7)}
+            maxDate={new Date(2019, 2, 31)}
           />
+          <button className='button is-dark' onClick={this.randomDatePicker}>Random Date</button>
           <div className='columns is-multiline'>
             {this.state.data.map(datum =>
               <div key={datum.id} className='column is-one-fifth-desktop is-12-tablet'>
