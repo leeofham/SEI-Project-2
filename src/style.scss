@@ -8,11 +8,6 @@ h2 {
   padding-top: 25 px;
 }
 
-h1.title.is-1,
-h2.subtitle.is-3.has-text-white {
-  text-align: center;
-}
-
 p {
   padding-bottom: 5px;
 }
@@ -74,6 +69,15 @@ div.mainContainer {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+
+  h1.title,
+  h2.subtitle{
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 150px;
+  }
 
   h2 {
     padding-top: 25px;
