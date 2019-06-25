@@ -44,9 +44,9 @@ Originally we set out to have the images displayed by Earth date but later found
 * The website is a home page and from their the user journey is split into two sections.
 * The first being Mars Rover images and second being Astronomy picture of the day.
 
-![MARS ROVER](https://user-images.githubusercontent.com/42970647/60115983-11f5db80-976f-11e9-9412-96b4ec68df23.png)
-
 * We used Bulma for the project due to the 1.5 day timeframe to come up with a fully functional project.
+
+![MARS ROVER](https://user-images.githubusercontent.com/42970647/60115983-11f5db80-976f-11e9-9412-96b4ec68df23.png)
 
 
 ## Wins
