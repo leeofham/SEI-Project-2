@@ -68,7 +68,6 @@ randomDatePicker(){
 
 * We also used modals on the show page to show more images from the Mars Rover.
 
-
 ## Challenges
 * It was the first time customising Bulma and the way you have to be very specific with names of classes.
 
