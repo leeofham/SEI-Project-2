@@ -23,7 +23,7 @@ NASA gallery is a gallery of all the Mars Rover images.
 
 ![HOME PAGE](https://user-images.githubusercontent.com/42970647/60115978-0efaeb00-976f-11e9-8857-ec5d618e618c.png)
 
-You can find a hosted version here ----> https://liamroberts.me/SEI-Project-2/#/
+You can find a hosted version here ----> http://leeofham.github.io/SEI-Project-2/#/
 
 ## Functionality
 This application gathers all the Mars Rover images up to March 2019 and displays them by date. It also has a separate section which has NASA's Astronomy picture of the day.
