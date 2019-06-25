@@ -32,7 +32,7 @@ The user can view Mars Rover images or the Astronomy picture of the day by date 
 
 ## Development process
 
-Me and Sam worked really well as a team. Sam already had an idea where to go with the project as she really wanted to work with NASA's API. After viewing it and seeing all the cool images we decided to go for it.
+We worked really well as a team. Sam already had an idea where to go with the project as she really wanted to work with NASA's API. After viewing it and seeing all the cool images we decided to go for it.
 
 Originally we set out to have the images displayed by Earth date but later found a whole bunch of cool imagery and uses of the NASA's API. We decided on the Astronomy picture of the day as some of the images we just too good to leave out.
 
